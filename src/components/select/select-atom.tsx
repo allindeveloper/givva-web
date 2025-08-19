@@ -129,7 +129,10 @@ export const SelectAtom = <T,>({
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}
         onClick={handleClick}
-        className={clsx("w-full outline-none cursor-pointer !text-dark-custom-5", className)}
+        className={clsx(
+          "w-full outline-none cursor-pointer !text-dark-custom-5",
+          className,
+        )}
         disabled={disabled}
         transparent={transparent}
         readOnly

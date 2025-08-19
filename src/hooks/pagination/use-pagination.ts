@@ -11,7 +11,7 @@ type UsePaginationResult<T> = {
 
 export function usePagination<T>(
   data: T[],
-  pageSize: number = 10
+  pageSize: number = 10,
 ): UsePaginationResult<T> {
   const [currentPage, setCurrentPage] = useState(1);
   const [refreshKey, setRefreshKey] = useState(0);

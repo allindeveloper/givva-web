@@ -92,7 +92,6 @@ const TextAreaAtom = forwardRef<HTMLTextAreaElement, TextAreaAtomProps>(
               {endIcon}
             </div>
           )}
-        
         </div>
         {errorMessage ? (
           <LabelAtom className="text-red-400 mt-2 mb-2 block">

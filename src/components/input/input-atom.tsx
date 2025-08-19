@@ -45,7 +45,7 @@ const InputAtom = forwardRef<HTMLInputElement, InputAtomProps>(
       endIcon,
       handleEndIconClick,
       transparent,
-      readOnly
+      readOnly,
     },
     ref,
   ) => {
