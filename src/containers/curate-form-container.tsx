@@ -82,10 +82,8 @@ export const CurateFormContainer = ({
   const handleSelectGift = (gift: string) => {
     setgiftTypes((prev) => {
       if (prev.includes(gift)) {
-        // remove it
         return prev.filter((g) => g !== gift);
       } else {
-        // add it
         return [...prev, gift];
       }
     });
