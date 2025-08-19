@@ -17,14 +17,13 @@ export function usePagination<T>(
   const [refreshKey, setRefreshKey] = useState(0);
 
   const recalculate = useCallback(() => {
-    setRefreshKey((prev) => prev + 1); // trigger recompute
+    setRefreshKey((prev) => prev + 1); 
   }, []);
 
   const { paginatedData, totalPages, totalItems } = useMemo(() => {
     const totalItems = data.length;
     const totalPages = Math.ceil(totalItems / pageSize);
 
-    // ensure currentPage is within bounds
     const safePage = Math.min(Math.max(currentPage, 1), totalPages || 1);
 
     const startIndex = (safePage - 1) * pageSize;
@@ -36,7 +35,7 @@ export function usePagination<T>(
       totalPages,
       totalItems,
     };
-  }, [data, currentPage, pageSize, refreshKey]); // 👈 include refreshKey
+  }, [data, currentPage, pageSize, refreshKey]); 
 
   return {
     paginatedData,
@@ -44,6 +43,6 @@ export function usePagination<T>(
     totalItems,
     currentPage,
     setCurrentPage,
-    recalculate, // 👈 expose externally
+    recalculate,
   };
 }

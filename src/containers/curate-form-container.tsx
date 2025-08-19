@@ -10,6 +10,12 @@ import {
 } from "../types/curation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CurateCardSelect } from "../components/card/curate-card-select";
+import { AgeRangeIcon } from "../assets/icons/age-range-icon";
+import { NameIcon } from "../assets/icons/name-icon";
+import { RelationshipIcon } from "../assets/icons/relationship-icon";
+import { InterestIcon } from "../assets/icons/interest-icon";
+import { OccassionIcon } from "../assets/icons/occassion-icon";
+import { NoteIcon } from "../assets/icons/note-icon";
 
 const ageRanges = [
   {
@@ -106,6 +112,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   value={value}
                   onBlur={onBlur}
+                  labelIcon={<AgeRangeIcon className="mr-2" />}
                   errorMessage={errors.name?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />
@@ -122,6 +129,7 @@ export const CurateFormContainer = ({
                   value={value}
                   label="Age Range"
                   placeholder="Select"
+                  labelIcon={<NameIcon className="mr-2" />}
                   errorMessage={errors.ageRange?.message}
                   className="pl-4 border !border-grey-custom-2 !bg-white !rounded-[6px]"
                 />
@@ -138,6 +146,7 @@ export const CurateFormContainer = ({
                   value={value}
                   label="Relationship"
                   placeholder="Select"
+                  labelIcon={<RelationshipIcon className="mr-2" />}
                   errorMessage={errors.relationship?.message}
                   className="pl-4 border !border-grey-custom-2 !bg-white !rounded-[6px]"
                 />
@@ -154,6 +163,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  labelIcon={<InterestIcon className="mr-2" />}
                   errorMessage={errors.interests?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />
@@ -169,6 +179,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  labelIcon={<OccassionIcon className="mr-2" />}
                   errorMessage={errors.occassion?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />
@@ -184,6 +195,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  labelIcon={<NoteIcon className="mr-2" />}
                   errorMessage={errors.note?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />

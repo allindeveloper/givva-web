@@ -51,7 +51,7 @@ const InputAtom = forwardRef<HTMLInputElement, InputAtomProps>(
         {label && (
           <div className="flex justify-start items-center mb-2">
             {labelIcon}
-            <LabelAtom className="font-semibold text-primary text-lg mt-1 block">
+            <LabelAtom className="font-semibold text-grey-custom-7 text-sm mt-1 block">
               {label}
             </LabelAtom>
           </div>
