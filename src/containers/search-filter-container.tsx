@@ -45,7 +45,7 @@ export const SearchFilterContainer: FC<SearchFilterContainerProps> = ({
   };
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
-    //
+    setFilter(e.target.value)
   };
   return (
     <div className="block sm:flex justify-between">
@@ -70,7 +70,7 @@ export const SearchFilterContainer: FC<SearchFilterContainerProps> = ({
               onChange={onChangeFilter}
               items={filterData}
               value={search}
-              placeholder="Select"
+              placeholder="Select age range"
               className="pl-4 border !border-grey-custom-2 !bg-white !rounded-[6px] !text-grey-custom-2 placeholder:!text-base placeholder:!font-medium placeholder:!text-grey-custom-2"
             />
           </div>

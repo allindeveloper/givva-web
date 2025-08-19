@@ -136,7 +136,6 @@ export const SelectAtom = <T,>({
         disabled={disabled}
         transparent={transparent}
         readOnly
-        handleEndIconClick={handleClick}
         endIcon={endIcon || <DownArrowIcon />}
       />
       {isOpen && (
