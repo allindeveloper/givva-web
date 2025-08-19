@@ -18,16 +18,16 @@ export const SearchFilterContainer: FC<SearchFilterContainerProps> = ({
   const [debouncedSearch] = useDebounce(search, 500);
   const filterData = [
     {
-      label: "Popular",
-      value: 1,
+      label: "From 18 to 25",
+      value: "18-25",
     },
     {
-      label: "Latest",
-      value: 2,
+      label: "From 25 to 25",
+      value: "25-40",
     },
     {
-      label: "Trending",
-      value: 3,
+      label: "From 20 to 30",
+      value: "20-30",
     },
   ];
 
@@ -45,7 +45,9 @@ export const SearchFilterContainer: FC<SearchFilterContainerProps> = ({
   };
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
+    const filter = e.target.value
     setFilter(e.target.value)
+    handlePerformSearch(filter);
   };
   return (
     <div className="block sm:flex justify-between">
@@ -69,7 +71,7 @@ export const SearchFilterContainer: FC<SearchFilterContainerProps> = ({
             <SelectAtom
               onChange={onChangeFilter}
               items={filterData}
-              value={search}
+              value={filter}
               placeholder="Select age range"
               className="pl-4 border !border-grey-custom-2 !bg-white !rounded-[6px] !text-grey-custom-2 placeholder:!text-base placeholder:!font-medium placeholder:!text-grey-custom-2"
             />
