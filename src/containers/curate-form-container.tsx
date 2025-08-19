@@ -47,10 +47,11 @@ export const CurateFormContainer = ({
     handleCreate,
 }: CurateFormContainerProps) => {
     const [step, setStep] = useState(1);
-    const [giftType, setgiftType] = useState("")
+    const [giftTypes, setgiftTypes] = useState<string[]>([""])
     const {
         handleSubmit,
         control,
+        getValues,
         formState: { errors },
     } = useForm<CreateCurationFormType>({
         defaultValues: {},
@@ -58,13 +59,28 @@ export const CurateFormContainer = ({
         resolver: zodResolver(CreateCurationFormSchema),
     });
 
-    const onSubmit: SubmitHandler<CreateCurationFormType> = (data) => {
+    const onSubmit: SubmitHandler<CreateCurationFormType> = () => {
         setStep(2)
-        // handleCreate(data)
     };
 
     const handleSelectGift = (gift: string) => {
-        setgiftType(gift)
+        setgiftTypes((prev) => {
+            if (prev.includes(gift)) {
+                // remove it
+                return prev.filter((g) => g !== gift);
+            } else {
+                // add it
+                return [...prev, gift];
+            }
+        });
+    }
+
+    const handleSave = () => {
+        const formValue = getValues();
+        handleCreate({
+            ...formValue,
+            giftTypes
+        })
     }
     return (
         <>
@@ -160,13 +176,23 @@ export const CurateFormContainer = ({
                     <ButtonAtom title="Curate" type="submit" className="!bg-blue-custom-1 w-full" />
                 </form>
             </div>}
-
-            {step === 2 && <div className="grid sm:grid-cols-2 grid-cols-1 gap-6">
-                {dummyGifts.map((gift, index) => (
-                    <CurateCardSelect selected={gift === giftType} handleSelect={() => handleSelectGift(gift)} key={index} name={gift}  />
-                ))
+            <div>
+                {step === 2 && <div className="mt-6">
+                    <div className="grid sm:grid-cols-2 grid-cols-1 gap-6">
+                        {dummyGifts.map((gift, index) => (
+                            <CurateCardSelect selected={giftTypes.includes(gift)}
+                                handleSelect={() => handleSelectGift(gift)} key={index} name={gift} />
+                        ))
+                        }
+                    </div>
+                    <div className="flex justify-between items-center gap-5 mt-8">
+                        <ButtonAtom title="Cancel" type="reset" className="w-full !text-dark-custom-6 !font-medium" />
+                        <ButtonAtom title="Save" onClick={handleSave} className="!bg-blue-custom-1 w-full" />
+                    </div>
+                </div>
                 }
-            </div>}
+
+            </div>
         </>
     )
 }

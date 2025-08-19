@@ -1,22 +1,24 @@
 import { useState } from "react"
 import type { CreateCurationFormType } from "../types/curation"
 import { CurateCard } from "../components/card/curate-card"
-import { dummyCurations } from "../data/dummy-curations"
 import { WelcomeContainer } from "../containers/welcome-container"
 import { SearchFilterContainer } from "../containers/search-filter-container"
 import { Pagination } from "../components/pagination/pagination"
 import { Dialog } from "../components/dialog/dialog"
 import { CurateFormContainer } from "../containers/curate-form-container"
 import { CurrateSuccess } from "../containers/curate-success"
-import { getCurations } from "../storage/curation-storage"
+import { addCuration, getCurations } from "../storage/curation-storage"
 import { usePagination } from "../hooks/pagination/use-pagination"
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom"
 
 const HomePage = () => {
-
+    const navigate = useNavigate()
     const [curations, setCurations] = useState<CreateCurationFormType[]>(getCurations());
     const [showCreate, setshowCreate] = useState(false)
     const [showSuccess, setshowSuccess] = useState(false);
     const { paginatedData, recalculate, setCurrentPage, totalPages, currentPage } = usePagination(curations)
+    const [newCuration, setNewCuration] = useState<CreateCurationFormType>()
     const handleNext = () => {
         if (currentPage === totalPages) {
             return
@@ -35,8 +37,13 @@ const HomePage = () => {
     }
 
     const handleCreateGift = (data: CreateCurationFormType) => {
-        setCurations(prev => [...prev, data]);
+        const newData = {...data, id: uuidv4() }
+        setCurations(prev => [data, ...prev]);
+        addCuration(newData);
+        setNewCuration(newData)
+        recalculate();
         setshowCreate(false)
+        setshowSuccess(true)
     }
 
     const handleGoHome = () => {
@@ -44,7 +51,7 @@ const HomePage = () => {
     }
 
     const handleViewDetails = () => {
-
+        navigate(`/curation/${newCuration?.id}`)
     }
 
     const handleResetSearch = () => {
@@ -63,7 +70,6 @@ const HomePage = () => {
             c.occassion.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
             c.relationship.toLowerCase().includes(debouncedSearch.toLowerCase())
         );
-
         setCurations(filteredData);
 
         setCurrentPage(1);
@@ -74,6 +80,8 @@ const HomePage = () => {
             <div className="my-6">
                 <WelcomeContainer
                     handleCreate={handleCreate}
+                    title="Hey Precious 👋 "
+                    description="Welcome Back"
                 />
             </div>
             <div>
@@ -106,7 +114,7 @@ const HomePage = () => {
                     handleCreate={handleCreateGift}
                 />
             </Dialog>
-            <Dialog open={showSuccess} handleClose={() => setshowSuccess(false)} title="Curate a Gift" description="Please fill the input field below">
+            <Dialog open={showSuccess} handleClose={() => setshowSuccess(false)}>
                 <CurrateSuccess
                     handleGoHome={handleGoHome}
                     handleViewDetails={handleViewDetails}

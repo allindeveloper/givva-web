@@ -15,7 +15,7 @@ export const CurateCardSelect: FC<CurateCardSelectProps> = ({
     handleSelect,
 }) => {
     return (
-        <div onClick={handleSelect}>
+        <div onClick={handleSelect} className="cursor-pointer">
             <div className="flex justify-start gap-4 items-center cur">
                 <div>
                     {selected ? <CircleFilledIcon /> : <CircleEmptyIcon />}

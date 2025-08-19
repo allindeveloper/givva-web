@@ -19,5 +19,6 @@ export const CreateCurationFormSchema = z.object({
 
 export type CreateCurationFormType = {
     id?: string
+    giftTypes?: string[]
 } & z.infer<typeof CreateCurationFormSchema>;
 

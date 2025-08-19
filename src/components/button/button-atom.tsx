@@ -26,6 +26,7 @@ const ButtonAtom: FunctionComponent<IButton> = ({
   const classNameValue = clsx(
     className,
     disabled ? " opacity-70" : "cursor-pointer opacity-100",
+    type === "reset" ? "!bg-white border border-grey-custom-8" : "",
     "bg-dark-custom-1  text-white px-10 sm:mb-0 rounded-[100px] mb-4 text-sm justify-center flex items-center py-2.5",
   );
 
@@ -42,7 +43,7 @@ const ButtonAtom: FunctionComponent<IButton> = ({
           <LabelAtom
             className={clsx(
               disabled ? "opacity-70" : "opacity-100 cursor-pointer",
-              "font-bold text-lg",
+              "text-lg",
             )}
           >
             {loading ? "Loading.." : title}

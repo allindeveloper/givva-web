@@ -16,6 +16,14 @@ export function initCurations(dummy: CreateCurationFormType[]) {
     return JSON.parse(existing) as CreateCurationFormType[];
 }
 
+export function addCuration(data: CreateCurationFormType): CreateCurationFormType {
+    const curations = getCurations();
+    const newCuration: CreateCurationFormType = { ...data};
+    curations.push(newCuration);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(curations));
+    return newCuration;
+  }
+
 export function getCurations(): CreateCurationFormType[] {
     const raw = localStorage.getItem(STORAGE_KEY);
     return raw ? (JSON.parse(raw) as CreateCurationFormType[]) : [];
