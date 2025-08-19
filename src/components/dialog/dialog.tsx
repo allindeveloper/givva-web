@@ -41,7 +41,7 @@ export const Dialog: FC<DialogProps> = ({
                 <CloseIcon />
               </div>
             )}
-            <div className="h-[576px]  overflow-y-auto">{children}</div>
+            <div className="overflow-y-auto">{children}</div>
           </div>
         </div>
       )}

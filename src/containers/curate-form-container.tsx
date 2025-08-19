@@ -58,12 +58,12 @@ export const CurateFormContainer = ({
     formState: { errors },
   } = useForm<CreateCurationFormType>({
     defaultValues: {
-      name: "",
-      note: "",
-      ageRange: "",
-      relationship: "",
-      occassion: "",
-      interests: "",
+        name: "",
+        note: "",
+        ageRange: "",
+        relationship: "",
+        occassion: "",
+        interests: ""
     },
     mode: "onTouched",
     resolver: zodResolver(CreateCurationFormSchema),
@@ -93,7 +93,7 @@ export const CurateFormContainer = ({
     });
   };
   return (
-    <>
+    <div className="h-[576px]">
       {step === 1 && (
         <div>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -226,6 +226,6 @@ export const CurateFormContainer = ({
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
