@@ -57,7 +57,14 @@ export const CurateFormContainer = ({
     getValues,
     formState: { errors },
   } = useForm<CreateCurationFormType>({
-    defaultValues: {},
+    defaultValues: {
+      name: "",
+      note: "",
+      ageRange: "",
+      relationship: "",
+      occassion: "",
+      interests: "",
+    },
     mode: "onTouched",
     resolver: zodResolver(CreateCurationFormSchema),
   });
@@ -99,6 +106,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   value={value}
                   onBlur={onBlur}
+                  errorMessage={errors.name?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />
               )}
@@ -114,6 +122,7 @@ export const CurateFormContainer = ({
                   value={value}
                   label="Age Range"
                   placeholder="Select"
+                  errorMessage={errors.ageRange?.message}
                   className="pl-4 border !border-grey-custom-2 !bg-white !rounded-[6px]"
                 />
               )}
@@ -129,6 +138,7 @@ export const CurateFormContainer = ({
                   value={value}
                   label="Relationship"
                   placeholder="Select"
+                  errorMessage={errors.relationship?.message}
                   className="pl-4 border !border-grey-custom-2 !bg-white !rounded-[6px]"
                 />
               )}
@@ -144,6 +154,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  errorMessage={errors.interests?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />
               )}
@@ -158,6 +169,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  errorMessage={errors.occassion?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />
               )}
@@ -172,6 +184,7 @@ export const CurateFormContainer = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  errorMessage={errors.note?.message}
                   className="mb-4 !bg-grey-custom-4 !border-transparent px-4"
                 />
               )}

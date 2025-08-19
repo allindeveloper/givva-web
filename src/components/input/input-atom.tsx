@@ -20,7 +20,6 @@ export interface InputAtomProps {
   type?: string;
   endIcon?: React.ReactNode;
   transparent?: boolean;
-  handleEndIconClick?: () => void;
   readOnly?: boolean;
 }
 
@@ -43,8 +42,6 @@ const InputAtom = forwardRef<HTMLInputElement, InputAtomProps>(
       onBlur,
       type,
       endIcon,
-      handleEndIconClick,
-      transparent,
       readOnly,
     },
     ref,
@@ -83,7 +80,6 @@ const InputAtom = forwardRef<HTMLInputElement, InputAtomProps>(
           />
           {endIcon && (
             <div
-              onClick={handleEndIconClick}
               className={clsx(
                 "absolute cursor-pointer top-4.5 bottom-0 right-3.5",
               )}
@@ -93,7 +89,7 @@ const InputAtom = forwardRef<HTMLInputElement, InputAtomProps>(
           )}
         </div>
         {errorMessage ? (
-          <LabelAtom className="text-red-400 mt-2 mb-2 block">
+          <LabelAtom className="text-red-400 mt-0 mb-2 block">
             {errorMessage}
           </LabelAtom>
         ) : (

@@ -92,7 +92,7 @@ const HomePage = () => {
           description="Welcome Back"
         />
       </div>
-      <div>
+      <div className="mt-8">
         <SearchFilterContainer
           handlePerformSearch={handlePerformSearch}
           handleResetSearch={handleResetSearch}

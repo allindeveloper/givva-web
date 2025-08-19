@@ -3,6 +3,7 @@ import InputAtom from "../components/input/input-atom";
 import { ParagraphAtom } from "../components/paragraph/paragraph-atom";
 import { SelectAtom } from "../components/select/select-atom";
 import { useDebounce } from "use-debounce";
+import { SearchIcon } from "../assets/icons/search-icon";
 
 type SearchFilterContainerProps = {
   handleResetSearch: () => void;
@@ -47,9 +48,9 @@ export const SearchFilterContainer: FC<SearchFilterContainerProps> = ({
     //
   };
   return (
-    <div className="flex justify-between">
+    <div className="block sm:flex justify-between">
       <div>
-        <ParagraphAtom className="font-semibold font-degular-semi-bold text-primary text[32px]">
+        <ParagraphAtom className="font-semibold font-degular-semi-bold text-primary text-[32px]">
           Top picks
         </ParagraphAtom>
       </div>
@@ -58,8 +59,9 @@ export const SearchFilterContainer: FC<SearchFilterContainerProps> = ({
         <div>
           <InputAtom
             placeholder="What type of gift ideas are you interested in?"
-            className="!bg-grey-custom-4 !border-transparent px-4"
+            className="!bg-grey-custom-4 !border-transparent pl-14"
             onChange={handleSearchChange}
+            startIcon={<SearchIcon />}
           />
         </div>
         <div>

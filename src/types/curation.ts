@@ -1,15 +1,24 @@
 import { z } from "zod";
 
 export const CreateCurationFormSchema = z.object({
-  name: z
-    .string()
-    .min(5, { message: `Email must be at least ${4} characters long.` })
-    .max(200, { message: `Email must be at most ${200} characters long.` }),
-  ageRange: z.string(),
-  relationship: z.string(),
-  interests: z.string(),
-  occassion: z.string(),
-  note: z.string(),
+  name: z.string().nonempty({
+    error: "Name is required",
+  }),
+  ageRange: z.string().nonempty({
+    error: "Age Range is required",
+  }),
+  relationship: z.string().nonempty({
+    error: "Relationship is required",
+  }),
+  interests: z.string().nonempty({
+    error: "Interest is required",
+  }),
+  occassion: z.string().nonempty({
+    error: "Occassion is required",
+  }),
+  note: z.string().nonempty({
+    error: "Note is required",
+  }),
 });
 
 export type CreateCurationFormType = {

@@ -13,7 +13,7 @@ export const PlusIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
       d="M7.5 2V14M13.5 8L1.5 8"
       stroke="white"
       strokeWidth="3"
-      stroke-linecap="round"
+      strokeLinecap="round"
       stroke-linejoin="round"
     />
   </svg>

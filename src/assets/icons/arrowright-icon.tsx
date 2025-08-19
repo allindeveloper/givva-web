@@ -13,7 +13,7 @@ export const ArrowRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
       d="M1.16675 6.99996H12.8334M12.8334 6.99996L7.00008 1.16663M12.8334 6.99996L7.00008 12.8333"
       stroke="#667085"
       strokeWidth="1.67"
-      stroke-linecap="round"
+      strokeLinecap="round"
       stroke-linejoin="round"
     />
   </svg>
