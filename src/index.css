@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  /* background images */
+  --font-degular: "Degular-Regular", sans-serif;
+  --font-degular-medium: "Degular-Medium", sans-serif;
+  --font-degular-bold: "Degular-Bold", sans-serif;
+  --font-degular-semi-bold: "Degular-SemiBold", sans-serif;
+  --font-degular-extra-bold: "Degular-ExtraBold", sans-serif;
+  --font-degular-black: "Degular-Black", sans-serif;
+
+  --color-primary: #191919;
+
+  /* dark */
+  --color-dark-custom-1: #0A1207;
+  --color-dark-custom-2: #1D1D1DB2;
+  --color-dark-custom-3: #1D1D1DE5;
+  --color-dark-custom-4: #14141480;
+  --color-dark-custom-5: #252B37;
+
+  /* grey */
+  --color-grey-custom-1: #9C9C9E;
+  --color-grey-custom-2: #D0D5DD;
+  --color-grey-custom-3: #E9EAEB;
+  --color-grey-custom-4: #F9FAFB;
+  --color-grey-custom-5: #F5F5F5;
+  --color-grey-custom-6: #F2F2F2;
+  --color-grey-custom-7: #344054;
+
+  /* gray */
+  --color-gray-custom-1: #344054;
+
+  /* blue */
+  --color-blue-custom-1: #4DA1FF;
+}
+
+
+@font-face {
+  font-family: "Degular-Regular";
+  src: url("/assets/fonts/DegularDemo-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-ExtraLight";
+  src: url("/assets/fonts/DegularDemo-ExtraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-Light";
+  src: url("/assets/fonts/DegularDemo-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-Regular";
+  src: url("/assets/fonts/DegularDemo-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-Medium";
+  src: url("/assets/fonts/DegularDemo-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-SemiBold";
+  src: url("/assets/fonts/DegularDemo-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-Bold";
+  src: url("/assets/fonts/DegularDemo-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-Black";
+  src: url("/assets/fonts/DegularDemo-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular-Bold";
+  src: url("/assets/fonts/DegularDemo-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
